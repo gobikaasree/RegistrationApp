@@ -3,27 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
       "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|c:\\users\\vijay\\source\\repos\\registrationapp\\registrationapp\\report\\report1.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\report\\report1.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
       "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\report\\report1.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     }
   ],
@@ -34,24 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\.gitignore",
-              "RelativeDocumentMoniker": "RegistrationApp\\.gitignore",
-              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\.gitignore",
-              "RelativeToolTip": "RegistrationApp\\.gitignore",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-05-27T07:34:11.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "DataSet1.xsd",
               "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\DataSet1.xsd",
               "RelativeDocumentMoniker": "RegistrationApp\\DataSet1.xsd",
@@ -63,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Web.config",
               "RelativeDocumentMoniker": "RegistrationApp\\Web.config",
@@ -89,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Report1.rdlc [Design]",
               "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Report\\Report1.rdlc",
               "RelativeDocumentMoniker": "RegistrationApp\\Report\\Report1.rdlc",
@@ -101,13 +84,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ManageUsers.aspx.cs",
               "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx.cs",
               "RelativeDocumentMoniker": "RegistrationApp\\ManageUsers.aspx.cs",
               "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx.cs",
               "RelativeToolTip": "RegistrationApp\\ManageUsers.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGABAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T07:12:18.768Z",
               "EditorCaption": ""

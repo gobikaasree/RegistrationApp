@@ -150,22 +150,22 @@ namespace RegistrationApp
         protected global::System.Web.UI.WebControls.Label lblUploadUserId;
 
         /// <summary>
-        /// fuSingleUpload control.
+        /// fuMultiDocs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuSingleUpload;
+        protected global::System.Web.UI.WebControls.FileUpload fuMultiDocs;
 
         /// <summary>
-        /// btnUploadDoc control.
+        /// btnUploadMultiDocs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUploadDoc;
+        protected global::System.Web.UI.WebControls.Button btnUploadMultiDocs;
 
         /// <summary>
         /// btnCancelUpload control.
@@ -175,6 +175,15 @@ namespace RegistrationApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelUpload;
+
+        /// <summary>
+        /// rptDocuments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptDocuments;
 
         /// <summary>
         /// viewReport control.

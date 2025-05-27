@@ -1,12 +1,103 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\manageusers.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\manageusers.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\dataset1.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\registrationapp\\report\\report1.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{775E265C-527A-49E5-A504-7AF99D58306F}|RegistrationApp\\RegistrationApp.csproj|solutionrelative:registrationapp\\report\\report1.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataSet1.xsd",
+              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\DataSet1.xsd",
+              "RelativeDocumentMoniker": "RegistrationApp\\DataSet1.xsd",
+              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\DataSet1.xsd",
+              "RelativeToolTip": "RegistrationApp\\DataSet1.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-05-27T07:13:21.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Web.config",
+              "RelativeDocumentMoniker": "RegistrationApp\\Web.config",
+              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Web.config",
+              "RelativeToolTip": "RegistrationApp\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-27T07:12:25.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ManageUsers.aspx",
+              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx",
+              "RelativeDocumentMoniker": "RegistrationApp\\ManageUsers.aspx",
+              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx",
+              "RelativeToolTip": "RegistrationApp\\ManageUsers.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-05-27T07:12:09.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Report1.rdlc [Design]",
+              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Report\\Report1.rdlc",
+              "RelativeDocumentMoniker": "RegistrationApp\\Report\\Report1.rdlc",
+              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\Report\\Report1.rdlc [Design]",
+              "RelativeToolTip": "RegistrationApp\\Report\\Report1.rdlc [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-05-27T07:13:57.62Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ManageUsers.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx.cs",
+              "RelativeDocumentMoniker": "RegistrationApp\\ManageUsers.aspx.cs",
+              "ToolTip": "C:\\Users\\vijay\\Source\\Repos\\RegistrationApp\\RegistrationApp\\ManageUsers.aspx.cs",
+              "RelativeToolTip": "RegistrationApp\\ManageUsers.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGABAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T07:12:18.768Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
