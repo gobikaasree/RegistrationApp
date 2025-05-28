@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace RegistrationApp
@@ -82,6 +84,26 @@ namespace RegistrationApp
         {
             gvUsers.EditIndex = e.NewEditIndex;
             LoadUsers();
+
+            // Get user ID
+            int userId = Convert.ToInt32(gvUsers.DataKeys[e.NewEditIndex].Value);
+
+            // Find the Repeater in the GridView row
+            GridViewRow row = gvUsers.Rows[e.NewEditIndex];
+            Repeater rptEditDocs = (Repeater)row.FindControl("rptEditDocs");
+
+            if (rptEditDocs != null)
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM UserDocuments WHERE UserId = @UserId", con);
+                    da.SelectCommand.Parameters.AddWithValue("@UserId", userId);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    rptEditDocs.DataSource = dt;
+                    rptEditDocs.DataBind();
+                }
+            }
         }
 
         protected void gvUsers_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -98,16 +120,18 @@ namespace RegistrationApp
             string phone = ((TextBox)gvUsers.Rows[e.RowIndex].Cells[3].Controls[0]).Text;
 
             FileUpload fuEditDocument = (FileUpload)gvUsers.Rows[e.RowIndex].FindControl("fuEditDocument");
-            string newFileName = GetExistingFilePath(id); 
+            string newFileName = GetExistingFilePath(id); // default: retain existing
 
             if (fuEditDocument != null && fuEditDocument.HasFile)
             {
+                // Delete old file
                 string oldFilePath = Server.MapPath("~/Uploads/" + newFileName);
                 if (System.IO.File.Exists(oldFilePath))
                 {
                     System.IO.File.Delete(oldFilePath);
                 }
 
+                // Save new file
                 newFileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(fuEditDocument.FileName);
                 string newFilePath = Server.MapPath("~/Uploads/" + newFileName);
                 fuEditDocument.SaveAs(newFilePath);
@@ -128,6 +152,7 @@ namespace RegistrationApp
             gvUsers.EditIndex = -1;
             LoadUsers();
         }
+
 
 
         protected void gvUsers_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -195,6 +220,7 @@ namespace RegistrationApp
                 int userId = Convert.ToInt32(e.CommandArgument);
                 lblUploadUserId.Text = userId.ToString();
                 pnlUpload.Visible = true;
+                LoadDocuments(userId);
             }
         }
 
@@ -227,28 +253,6 @@ namespace RegistrationApp
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Failed to send email: {ex.Message}');", true);
             }
         }
-        protected void btnUploadDoc_Click(object sender, EventArgs e)
-        {
-            int userId = int.Parse(lblUploadUserId.Text);
-            if (fuSingleUpload.HasFile)
-            {
-                string fileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(fuSingleUpload.FileName);
-                string filePath = Server.MapPath("~/Uploads/" + fileName);
-                fuSingleUpload.SaveAs(filePath);
-
-                using (SqlConnection con = new SqlConnection(cs))
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE Users SET DocumentPath=@DocPath WHERE Id=@Id", con);
-                    cmd.Parameters.AddWithValue("@DocPath", fileName);
-                    cmd.Parameters.AddWithValue("@Id", userId);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-
-                pnlUpload.Visible = false;
-                LoadUsers();
-            }
-        }
 
         protected void btnCancelUpload_Click(object sender, EventArgs e)
         {
@@ -264,6 +268,100 @@ namespace RegistrationApp
                 con.Open();
                 object result = cmd.ExecuteScalar();
                 return result != null ? result.ToString() : "";
+            }
+        }
+        protected void btnUploadMultiDocs_Click(object sender, EventArgs e)
+        {
+            int userId = int.Parse(lblUploadUserId.Text);
+
+            if (fuMultiDocs.HasFiles)
+            {
+                foreach (HttpPostedFile file in fuMultiDocs.PostedFiles)
+                {
+                    string fileName = Guid.NewGuid() + System.IO.Path.GetExtension(file.FileName);
+                    string filePath = Server.MapPath("~/Uploads/" + fileName);
+                    file.SaveAs(filePath);
+
+                    using (SqlConnection con = new SqlConnection(cs))
+                    {
+                        SqlCommand cmd = new SqlCommand("INSERT INTO UserDocuments (UserId, FileName) VALUES (@UserId, @FileName)", con);
+                        cmd.Parameters.AddWithValue("@UserId", userId);
+                        cmd.Parameters.AddWithValue("@FileName", fileName);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+
+            LoadDocuments(userId);
+        }
+        private void LoadDocuments(int userId)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM UserDocuments WHERE UserId = @UserId", con);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                rptDocuments.DataSource = reader;
+                rptDocuments.DataBind();
+            }
+        }
+        protected void rptDocuments_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteDoc")
+            {
+                int docId = int.Parse(e.CommandArgument.ToString());
+
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    SqlCommand getCmd = new SqlCommand("SELECT FileName FROM UserDocuments WHERE Id = @Id", con);
+                    getCmd.Parameters.AddWithValue("@Id", docId);
+                    string fileName = (string)getCmd.ExecuteScalar();
+
+                    string filePath = Server.MapPath("~/Uploads/" + fileName);
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    SqlCommand delCmd = new SqlCommand("DELETE FROM UserDocuments WHERE Id = @Id", con);
+                    delCmd.Parameters.AddWithValue("@Id", docId);
+                    delCmd.ExecuteNonQuery();
+                }
+                gvUsers.EditIndex = -1;
+                LoadUsers();
+            }
+        }
+        protected void gvUsers_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                int userId = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "Id"));
+                Repeater rptInlineDocs = (Repeater)e.Row.FindControl("rptInlineDocuments");
+
+                if (rptInlineDocs != null)
+                {
+                    using (SqlConnection con = new SqlConnection(cs))
+                    {
+                        SqlCommand cmd = new SqlCommand(@"
+    SELECT FileName FROM UserDocuments WHERE UserId = @UserId
+    UNION
+    SELECT DocumentPath AS FileName FROM Users WHERE Id = @UserId AND ISNULL(DocumentPath, '') <> ''
+", con);
+                        cmd.Parameters.AddWithValue("@UserId", userId);
+
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        rptInlineDocs.DataSource = dt;
+                        rptInlineDocs.DataBind();
+
+                    }
+                }
             }
         }
 

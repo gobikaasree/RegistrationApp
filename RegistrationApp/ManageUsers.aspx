@@ -22,7 +22,9 @@
                     OnRowUpdating="gvUsers_RowUpdating"
                     OnRowCancelingEdit="gvUsers_RowCancelingEdit"
                     OnRowDeleting="gvUsers_RowDeleting"
-                    OnRowCommand="gvUsers_RowCommand">
+                    OnRowCommand="gvUsers_RowCommand"
+                    OnRowDataBound="gvUsers_RowDataBound">
+                    
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" ReadOnly="True" />
                         <asp:BoundField DataField="FullName" HeaderText="Full Name" />
@@ -30,27 +32,38 @@
                         <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" />
                         <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
                        <asp:TemplateField HeaderText="Actions">
-                           <ItemTemplate>
-                               <asp:Button ID="btnSendMail" runat="server" Text="Send Mail"
-                                   CommandName="SendMail"
-                                   CommandArgument ='<%# Eval("Email") %>' CssClass="btn btn-success btn-sm" />
-                               <asp:LinkButton ID="lnkUpload" runat="server" Text="Upload Doc"
-                                   CommandName="UploadDoc"
-                                   CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-warning btn-sm" />
-                               <asp:HyperLink ID="lnkDoc" runat="server" Text="Download"
-                                   NavigateUrl='<%# "~/Uploads/" + Eval("DocumentPath") %>'
-                                   Target="_blank"
-                                   Visible='<%# !string.IsNullOrEmpty(Eval("DocumentPath").ToString()) %>'
-                                   CssClass="btn btn-link btn-sm" />
-                           </ItemTemplate>
-                           <EditItemTemplate>
-                               <asp:FileUpload ID="fuEditDocument" runat="server" />
-                               <asp:HyperLink ID="lnkDocEdit" runat="server" Text="Current File"
-                                   NavigateUrl='<%# "~/Uploads/" + Eval("DocumentPath") %>'
-                                   Target="_blank"
-                                   Visible='<%# !string.IsNullOrEmpty(Eval("DocumentPath").ToString()) %>' />
-                           </EditItemTemplate>
-                       </asp:TemplateField>
+    <ItemTemplate>
+        <asp:Button ID="btnSendMail" runat="server" Text="Send Mail"
+            CommandName="SendMail"
+            CommandArgument='<%# Eval("Email") %>' CssClass="btn btn-success btn-sm" />
+
+        <asp:LinkButton ID="lnkUpload" runat="server" Text="Upload Doc"
+            CommandName="UploadDoc"
+            CommandArgument='<%# Eval("Id") %>' CssClass="btn btn-warning btn-sm" />
+
+        <asp:Repeater ID="rptInlineDocuments" runat="server">
+    <ItemTemplate>
+        <a href='<%# ResolveUrl("~/Uploads/" + Eval("FileName")) %>' target="_blank" class="btn btn-link btn-sm d-block" download='<%# Eval("FileName") %>'>
+            <%# Eval("FileName") %>
+        </a>
+    </ItemTemplate>
+</asp:Repeater>
+    </ItemTemplate>
+
+    <EditItemTemplate>
+    <asp:Repeater ID="rptEditDocs" runat="server" OnItemCommand="rptDocuments_ItemCommand">
+        <ItemTemplate>
+            <div class="d-flex align-items-center justify-content-between mb-1">
+                <a href='<%# "~/Uploads/" + Eval("FileName") %>' target="_blank"><%# Eval("FileName") %></a>
+                <asp:LinkButton ID="lnkDeleteDoc" runat="server" Text="Delete"
+                    CommandArgument='<%# Eval("Id") %>' CommandName="DeleteDoc"
+                    CssClass="btn btn-sm btn-danger ms-2" />
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+</EditItemTemplate>
+
+</asp:TemplateField>
 
                     </Columns>
 
@@ -63,13 +76,25 @@
                 <asp:TextBox ID="txtPhone" runat="server" CssClass="form-control mb-2" Placeholder="Phone Number" />
                 <asp:FileUpload ID="fuDocument" runat="server" CssClass="form-control mb-2" />
                 <asp:Button ID="btnAddUser" runat="server" Text="Add User" CssClass="btn btn-primary" OnClick="btnAddUser_Click" />
-                
 <asp:Panel ID="pnlUpload" runat="server" Visible="false" CssClass="mt-3 border p-3">
-    <h5>Upload Document for User ID: <asp:Label ID="lblUploadUserId" runat="server" /></h5>
-    <asp:FileUpload ID="fuSingleUpload" runat="server" CssClass="form-control mb-2" />
-    <asp:Button ID="btnUploadDoc" runat="server" Text="Upload Document" CssClass="btn btn-primary" OnClick="btnUploadDoc_Click" />
-    <asp:Button ID="btnCancelUpload" runat="server" Text="Cancel" CssClass="btn btn-secondary" OnClick="btnCancelUpload_Click" />
+    <h5>Upload Documents for User ID: <asp:Label ID="lblUploadUserId" runat="server" /></h5>
+
+    <asp:FileUpload ID="fuMultiDocs" runat="server" CssClass="form-control mb-2" AllowMultiple="true" />
+    <asp:Button ID="btnUploadMultiDocs" runat="server" Text="Upload Files" CssClass="btn btn-primary mb-2" OnClick="btnUploadMultiDocs_Click" />
+    <asp:Button ID="btnCancelUpload" runat="server" Text="Cancel" CssClass="btn btn-secondary mb-2" OnClick="btnCancelUpload_Click" />
+
+    <asp:Repeater ID="rptDocuments" runat="server" OnItemCommand="rptDocuments_ItemCommand">
+        <ItemTemplate>
+            <div class="d-flex align-items-center justify-content-between mb-1">
+                <a href='<%# "~/Uploads/" + Eval("FileName") %>' target="_blank"><%# Eval("FileName") %></a>
+                <asp:LinkButton ID="lnkDelete" runat="server" Text="Delete"
+                    CommandArgument='<%# Eval("Id") %>' CommandName="DeleteDoc"
+                    CssClass="btn btn-sm btn-danger ms-2" />
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
 </asp:Panel>
+
 
             </asp:View>
 
