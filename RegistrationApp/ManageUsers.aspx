@@ -43,7 +43,7 @@
 
         <asp:Repeater ID="rptInlineDocuments" runat="server">
     <ItemTemplate>
-        <a href='<%# "~/Uploads/" + Eval("FileName") %>' target="_blank" class="btn btn-link btn-sm d-block">
+        <a href='<%# ResolveUrl("~/Uploads/" + Eval("FileName")) %>' target="_blank" class="btn btn-link btn-sm d-block" download='<%# Eval("FileName") %>'>
             <%# Eval("FileName") %>
         </a>
     </ItemTemplate>
